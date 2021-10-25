@@ -1,0 +1,54 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>List Users</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+</head>
+<body style="background-color:   #F0FFFF ;" >
+<h1><center>You have successfully bought the book<br></center></h1><br><br>
+
+
+
+
+<div class="container">
+    <table class="table">
+        <tbody th:each="tempBooks : ${books}">
+        </tr>
+
+        <tr th:each="tempBooks : ${books}" >
+            <th class="thead-dark" scope="col" >Id</th>
+            <td th:text="${tempBooks.id}" />
+
+        </tr>
+
+        <tr>
+            <th class="thead-dark" >Book Name</th>
+            <td th:text="${tempBooks.title}" />
+        </tr>
+        <tr>
+            <th class="thead-dark" >Price</th>
+            <td th:text="${tempBooks.price}" />
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<center>
+    <a href="/view-user-books">View my books</a>&nbsp;&nbsp;&nbsp;
+    <a href="/nonuserbooks">Books List</a>
+</center>
+
+</body>
+</html>

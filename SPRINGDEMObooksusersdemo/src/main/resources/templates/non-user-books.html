@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns:form="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Books lists</title>
+</head>
+
+<body style="background-color:   #a6faee  ;" >
+
+<div class="container">
+
+    <h3>Books Lists</h3>
+    <hr>
+
+    <br>
+    <form th:action="@{/searchbooks}" method="get">
+        Search:<input type="text" name="booksName" />
+        <input type="submit" value="submit"/>
+    </form>
+    <br>
+
+
+    <table class="table table-bordered table-striped" style="background-color:   #fdffff ;">
+        <thead class="thead-dark">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Buy</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempBooks : ${books}">
+            <td th:text="${tempBooks.id}" />
+            <td th:text="${tempBooks.title}" />
+            <td th:text="${tempBooks.price}" />
+
+
+
+            <td>
+                <div >
+
+<!--                    <a href="/bookdescribe"> Rent book</a>-->
+
+                    <!-- Add "update" button/link -->
+                    <a th:href="@{/buybookselect(booksId=${tempBooks.id})}"
+                       class="btn btn-primary"
+                       onclick="if (!(confirm('Are you sure you want to buy this book?'))) return false">
+
+                        buy
+                    </a>
+
+
+
+                </div>
+            </td>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+
+
+    <a th:href="@{/viewUsersPage}">Back to Users page</a>
+
+</div>
+
+</body>
+</html>

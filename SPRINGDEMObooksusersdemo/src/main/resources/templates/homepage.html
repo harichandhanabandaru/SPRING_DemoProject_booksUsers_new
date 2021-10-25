@@ -1,0 +1,45 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+    .fancy{
+    border-height:10px;
+    border-inline-width: 100px;
+    background:#00FFFF;
+    font-color:black;
+    display: inline-block;
+    border-style: solid;
+    border-radius:8px;
+    border-color: #00FFFF;}
+
+    </style>
+
+
+    <meta charset="ISO-8859-1">
+   <center> <title>Welcome to JNTUHCEJ </title></center>
+<!--    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />-->
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:   #F0FFFF ;" >
+<div class="container text-center">
+   <center><h1>Welcome to JNTUHCEJ library </h1></center><br><hr><br><br><br><br>
+    <center>
+<!--    <h3><a th:href="/@{/login}">Login</a></h3>-->
+<!--    <h3><a th:href="/@{/users}">List of Users</a></h3>-->
+<div class="fancy">
+    <h1><a href="/login">Login</a></h1>
+</div><br><br><br><br>
+
+    <h4><a href="/register">New User Register Here</a></h4>
+    </center>
+
+
+
+
+</div>
+
+</body>
+</html>

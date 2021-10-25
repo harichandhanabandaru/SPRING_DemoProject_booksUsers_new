@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Staff Directory</title>
+</head>
+
+<body style="background-color:   #F0FFFF ;">
+
+<div class="container">
+
+    <h3>Books Directory</h3>
+    <hr>
+
+
+
+    <form th:action="@{/books/save}" class="form-inline">
+        <a th:href="@{/books/showFormForAdd}"
+           class="btn btn-primary btn-sm mr-5 mb-3">
+            Add Books
+        </a>
+    </form>
+
+    <br>
+    </form>
+    <form th:action="@{/books/search}" method="get">
+        Search:<input type="text" name="booksName" />
+        <input type="submit" value="submit"/>
+    </form>
+    <br>
+
+
+    <table class="table table-bordered table-striped" style="background-color:   #ffffff ;">
+        <thead class="thead-dark">
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Update/Delete</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempStaff : ${books}">
+
+            <td th:text="${tempStaff.id}" />
+            <td th:text="${tempStaff.title}" />
+            <td th:text="${tempStaff.price}" />
+
+
+            <td>
+
+
+                <div >
+
+                    <!-- Add "delete" button/link -->
+                    <a th:href="@{/books/delete(booksId=${tempStaff.id})}"
+                       class="btn btn-primary"
+                       onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+                        Delete
+                    </a>
+
+                </div>
+                <div >
+
+                    <!-- Add "update" button/link -->
+                    <a th:href="@{/books/showFormForUpdate(booksId=${tempStaff.id})}"
+                       class="btn btn-primary">
+                        Update
+                    </a>
+
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <a href="/adminpage">Back to admin page</a>
+
+</div>
+
+</body>
+</html>

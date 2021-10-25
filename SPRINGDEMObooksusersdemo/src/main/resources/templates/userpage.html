@@ -1,0 +1,43 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+    .fancy{
+
+    border-height:10px;
+   border-inline-length:10px;
+    border-inline-width: 30px;
+    background:#00FFFF;
+    font-color:black;
+    display: inline-block;
+    border-style: solid;
+    border-radius:8px;
+    border-color: #00FFFF;
+    }
+
+    </style>
+<title>
+    Admin page
+</title>
+</head>
+<body  style="background-color:   #F0FFFF ;" >
+<center>
+<h1>User details Page</h1><br><br><hr>
+
+  <h3>Welcome <b>[[${#request.userPrincipal.principal.FullName}]]</b><br><br></h3>
+
+   <div class="fancy"> <h2><a href="/user-detail-page">User Details Page</a><br></h2> </div><br><br><br>
+    <div class="fancy"><h2><a href="/view-user-books">View My Books</a><br></h2></div><br><br><br>
+        <div class="fancy"><h2><a href="/nonuserbooks">Books</a><br></h2></div><br>
+    <h4><a href="/start">Back to Home page</a></h4>
+
+<!--    <h2><a href="/nonuserbooks">Books</a><br></h2>-->
+<!--    <div class="fancy"><h2><a href="/bookslist">Books</a><br></h2></div><br>-->
+<br><br><br>
+    <form name="logoutForm" th:action="@{/logout}" method="post" >
+        <input type="submit" value="Sign Out"/>
+    </form>
+
+</center>
+
+</body>
+</html>
